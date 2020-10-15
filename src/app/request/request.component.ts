@@ -12,4 +12,15 @@ export class RequestComponent implements OnInit {
   ngOnInit() {
   }
 
+  AirportCodes: string[] = [
+    'ORD',
+    'MSP',
+    'LAX',
+    'SEA',
+    'RAP',
+    'DEN',
+    'LGA',
+    'JFK'
+  ];
+
 }

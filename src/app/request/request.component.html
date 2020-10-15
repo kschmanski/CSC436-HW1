@@ -1,10 +1,41 @@
-<p>request works!</p>
 
 <form novalidate>
   <div class="form-group">
-    <label>Name</label>
-    <input type="text" class="form-control">
+    <label>Origination Airport</label>
+    <select class="form-control">
+      <option value="">Select an airport</option>
+      <option *ngFor="let airportCode of AirportCodes" [value]="airportCode">
+        {{airportCode}}
+      </option>
+    </select>
   </div>
+
+  <!-- TODO - add some validation to ensure Destination != Origination-->
+  <div class="form-group">
+    <label>Destination Airport</label>
+    <select class="form-control">
+      <option value="">Select an airport</option>
+      <option *ngFor="let airportCode of AirportCodes" [value]="airportCode">
+        {{airportCode}}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Departure Date</label>
+    <input type="date" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Return Date</label>
+    <input type="date" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Number of Travelers</label>
+    <input type="number" class="form-control">
+  </div>
+
   <div class="form-group">
     <button class="btn btn-primary btn-block">Submit</button>
   </div>
