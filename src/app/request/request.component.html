@@ -1,8 +1,19 @@
 
-<form novalidate>
+<form #requestForm="ngForm" (ngSubmit)="onSubmit(requestForm)">
+
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="model.name"
+           #name="ngModel" [ngClass]="{ 'is-invalid': requestForm.submitted && name.invalid }" required>
+    <div *ngIf="requestForm.submitted && name.invalid" class="invalid-feedback">
+      <p *ngIf="name.errors.required">Name is required</p>
+    </div>
+  </div>
+
+
   <div class="form-group">
     <label>Origination Airport</label>
-    <select class="form-control">
+    <select name="originationAirport" class="form-control" [(ngModel)]="model.origination_airport">>
       <option value="">Select an airport</option>
       <option *ngFor="let airportCode of AirportCodes" [value]="airportCode">
         {{airportCode}}
@@ -13,7 +24,7 @@
   <!-- TODO - add some validation to ensure Destination != Origination-->
   <div class="form-group">
     <label>Destination Airport</label>
-    <select class="form-control">
+    <select class="form-control" name="destination_airport" [(ngModel)]="model.destination_airport">
       <option value="">Select an airport</option>
       <option *ngFor="let airportCode of AirportCodes" [value]="airportCode">
         {{airportCode}}
@@ -23,17 +34,19 @@
 
   <div class="form-group">
     <label>Departure Date</label>
-    <input type="date" class="form-control">
+    <input type="date" class="form-control" name="departure_date" [(ngModel)]="model.departure_date">
   </div>
 
+  <!-- TODO - add some validation to ensure Return date > departure date-->
   <div class="form-group">
     <label>Return Date</label>
-    <input type="date" class="form-control">
+    <input type="date" class="form-control" name="return_date" [(ngModel)]="model.return_date">
   </div>
 
-  <div class="form-group">
+  <!-- TODO - add some validation to ensure number of travelers > 0-->
+  <div class="form-group" >
     <label>Number of Travelers</label>
-    <input type="number" class="form-control">
+    <input type="number" min="0" class="form-control" name="number_of_travelers" [(ngModel)]="model.number_of_travelers">
   </div>
 
   <div class="form-group">
