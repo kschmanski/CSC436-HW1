@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 export class Request {
   public name: string;
@@ -34,6 +35,10 @@ export class RequestComponent implements OnInit {
     'JFK'
   ];
 
-  //selectedAirport = '';
 
+  onSubmit(f: NgForm): void {
+    console.log(f.value);
+    console.log(f.value.origination_airport);
+    console.log(f.value.number_of_travelers);
+  }
 }
