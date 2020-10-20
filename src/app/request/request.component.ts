@@ -8,6 +8,8 @@ export class Request {
   public departure_date: Date;
   public return_date: Date;
   public number_of_travelers: number = 1;
+  public price_per_ticket: number = 150;
+  public total_cost_of_trip: number;
 }
 
 @Component({
@@ -16,6 +18,7 @@ export class Request {
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements OnInit {
+  isHidden: boolean = true;
 
   constructor() { }
 
@@ -37,8 +40,10 @@ export class RequestComponent implements OnInit {
 
 
   onSubmit(f: NgForm): void {
-    console.log(f.value);
-    console.log(f.value.origination_airport);
-    console.log(f.value.number_of_travelers);
+    this.model.total_cost_of_trip = f.value.number_of_travelers * this.model.price_per_ticket;
+    console.log(this.model.total_cost_of_trip);
+
+    // console.log(this.isHidden);
+    this.isHidden = false;
   }
 }
