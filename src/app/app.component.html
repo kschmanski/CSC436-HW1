@@ -1,3 +1,14 @@
-<div class="container">
-  <app-request></app-request>
-</div>
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
+  <ul class="navbar-nav">
+    <div class = "navbar-header">
+      <a class="navbar-brand" [routerLink]="['']">Home</a>
+    </div>
+
+    <a class="nav-link" [routerLink]="['/request']">Travel Request</a>
+    <a class="nav-link" [routerLink]="['/about']">About</a>
+
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
