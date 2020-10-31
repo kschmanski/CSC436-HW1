@@ -1,13 +1,8 @@
 
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
   <ul class="navbar-nav">
-
-    <!-- maybe we could add a link to the home page here? -->
     <div class = "navbar-header">
-      <!--    Opens HomePage in new tab
-        <a class = "navbar-brand" href='' target="_blank">Movie App</a>
-      -->
-      <a class="navbar-brand" [routerLink]="['/home']">Movie App</a>
+      <a class="navbar-brand" [routerLink]="['']">Home</a>
     </div>
 
     <a class="nav-link" [routerLink]="['/request']">Travel Request</a>
@@ -15,8 +10,5 @@
 
   </ul>
 </nav>
-<br />
-<br />
-<br />
 
 <router-outlet></router-outlet>
